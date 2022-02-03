@@ -14,8 +14,15 @@
  * 
  */
 
-function coinFlip() {
-
+export function coinFlip() {
+  let flip = Math.random();
+  let result = "";
+  if(flip < .5) {
+    result = "heads";
+  } else {
+    result = "tails";
+  }
+  return result;
 }
 
 /** Multiple coin flips
@@ -37,26 +44,44 @@ function coinFlip() {
     ]
  */
 
-function coinFlips(flips) {
-
-}
-
-/** Count multiple flips
- * 
- * Write a function that accepts an array consisting of "heads" or "tails" 
- * (e.g. the results of your `coinFlips()` function) and counts each, returning 
- * an object containing the number of each.
- * 
- * example: conutFlips(['heads', 'heads','heads', 'tails','heads', 'tails','tails', 'heads','tails', 'heads'])
- * { tails: 5, heads: 5 }
- * 
- * @param {string[]} array 
- * @returns {{ heads: number, tails: number }}
- */
-
-function countFlips(array) {
-
-}
+    export function coinFlips(flips) {
+      var arr = [];
+      for(let x = 0; x < flips; x++){
+        let coin = coinFlip();
+        arr.push(coin);
+      }
+      return arr;
+    }
+    
+    /** Count multiple flips
+     * 
+     * Write a function that accepts an array consisting of "heads" or "tails" 
+     * (e.g. the results of your `coinFlips()` function) and counts each, returning 
+     * an object containing the number of each.
+     * 
+     * example: conutFlips(['heads', 'heads','heads', 'tails','heads', 'tails','tails', 'heads','tails', 'heads'])
+     * { tails: 5, heads: 5 }
+     * 
+     * @param {string[]} array 
+     * @returns {{ heads: number, tails: number }}
+     */
+    
+    export function countFlips(array) {
+      let heads = 0;
+      let tails = 0;
+      let counter = {heads, tails};
+      for(let x = 0; x < array.length; x++){
+        if(array[x] == "heads"){
+          heads++;
+        }
+        else{
+          tails++;
+        }
+      }
+      counter.heads = heads;
+      counter.tails = tails;
+      return counter;
+    }
 
 /** Flip a coin!
  * 
@@ -69,8 +94,18 @@ function countFlips(array) {
  * returns: { call: 'tails', flip: 'heads', result: 'lose' }
  */
 
-function flipACoin(call) {
-
+export function flipACoin(call) {
+  let info = {call: call, flip: "", result: ""};
+  let coinF = coinFlip();
+  let result = "";
+  if(call == coinF){
+    result = "win";
+  } else {
+    result = "lose"
+  }
+  info.flip = coinF;
+  info.result = result;
+  return info;
 }
 
 
