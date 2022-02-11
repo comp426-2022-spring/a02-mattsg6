@@ -107,17 +107,23 @@ export function coinFlip() {
  */
 
 export function flipACoin(call) {
-  let info = {call: call, flip: "", result: ""};
-  let coinF = coinFlip();
-  let result = "";
-  if(call == coinF){
-    result = "win";
-  } else {
-    result = "lose"
+  if(call == null || call == ""){
+    throw 'Error: no input'
   }
-  info.flip = coinF;
-  info.result = result;
-  return info;
+  if(call == 'heads' || call == 'tails'){
+    let info = {call: call, flip: "", result: ""};
+    let coinF = coinFlip();
+    let result = "";
+    if(call == coinF){
+      result = "win";
+    } else {
+      result = "lose"
+    }
+    info.flip = coinF;
+    info.result = result;
+    return info;
+  }
+  throw 'Usage: node guess-flip --call=[heads|tails]'
 }
 
 
