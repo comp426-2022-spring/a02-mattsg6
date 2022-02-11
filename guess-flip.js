@@ -12,7 +12,7 @@ else if(args.call == null || args.call == ''){
     // 
 }
 else{
-    console.error('Usage: node guess-flip.js --call=(heads|tails)')
+    console.error('Usage: node guess-flip --call=[heads|tails]')
     // Error: invalid input\nUsage: node guess-flip --call=[heads|tails]
 }
 
