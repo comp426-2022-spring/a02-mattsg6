@@ -70,6 +70,8 @@ export function coinFlip() {
       let heads = 0;
       let tails = 0;
       let counter = {heads, tails};
+      let counterHeads = {heads}
+      let counterTails = {tails}
       for(let x = 0; x < array.length; x++){
         if(array[x] == "heads"){
           heads++;
@@ -78,9 +80,19 @@ export function coinFlip() {
           tails++;
         }
       }
-      counter.heads = heads;
-      counter.tails = tails;
-      return counter;
+      if(heads > 0 && tails > 0){
+        counter.heads = heads;
+        counter.tails = tails;
+        return counter;
+      }
+      else if(heads > 0 && tails == 0){
+        counterHeads.heads = heads;
+        return counterHeads;
+      }
+      else{
+        counterTails.tails = tails;
+        return counterTails;
+      }
     }
 
 /** Flip a coin!
