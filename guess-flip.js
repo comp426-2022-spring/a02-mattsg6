@@ -8,9 +8,11 @@ if(args.call == 'heads' || args.call == 'tails'){
     console.log(flipACoin(args.call));   
 }
 else if(args.call == null || args.call == ''){
-    console.error('Error: no input\nUsage: node guess-flip --call=[heads|tails]');
+    console.error('Error: no input');
+    // \nUsage: node guess-flip --call=[heads|tails]
 }
 else{
-    console.error('Error: invalid input\nUsage: node guess-flip --call=[heads|tails]')
+    console.error('Expected: Usage: node guess-flip --call=[heads|tails]')
+    // Error: invalid input\nUsage: node guess-flip --call=[heads|tails]
 }
 
