@@ -4,7 +4,7 @@ import minimist from "minimist";
 const args = minimist(process.argv.slice(2), {
     call: true
 });
-if(args.call == 'heads' || args.call == 'tails' || args.call != null){
+if(args.call == 'heads' || args.call == 'tails'){
     console.log(flipACoin(args.call));   
 }
 else{
